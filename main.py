@@ -34,7 +34,7 @@ def predict_api():
     data = request.get_json(force=True)
     prediction = model.predict([np.array(list(data.values()))])
     result = prediction[0]
-    return jsonify(result)
+    return flask.jsonify(**result)
 #let it display debugging
 if __name__ == "__main__":
     app.run(debug=True)
