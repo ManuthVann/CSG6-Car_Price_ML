@@ -11,7 +11,6 @@ r = request.post(url, json={
     'borrower_length_experience':3,
     'home_ownership':3,
     'borrower_month_income':500,
-    'number_deliquency_public_record':0,
     'address_state':1
 })
 print(r.json())
