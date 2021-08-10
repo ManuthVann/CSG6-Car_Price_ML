@@ -69,9 +69,9 @@
          EasyMoney CO., LTD
      </p>
      <form id="form" action="{{ url_for('predict')}}"  method="post">
-         <input type="text" name="installment" placeholder="Monthly Installment" required="required" />
-         <input type="text" name="term" placeholder="Term" required="required" />
-         <input type="text" name="borrower_length_experience" placeholder="Number Of Experiences" required="required" />
+         <input type="text" name="installment" placeholder="Monthly Installment($)" required="required" />
+         <input type="text" name="term" placeholder="Number Of Term(Month)" required="required" />
+         <input type="text" name="borrower_length_experience" placeholder="Number Of Experiences(Year)" required="required" />
          <select name="home_ownership" class="btn btn-success dropdown-toggle"
             style="width: 400px;
             background-color: white;
@@ -84,12 +84,13 @@
             padding: 10px;
 	        font-size: 13px;
          ">
+             <option value=0>Choose Home Ownership</option>
             <option value=1>RENT</option>
             <option value=2>MORTGAGE</option>
             <option value=3>OWN</option>
             <option value=4>ANY</option>
         </select>
-         <input type="text" name="borrower_month_income" placeholder="Monthly Income" required="required" />
+         <input type="text" name="borrower_month_income" placeholder="Monthly Income($)" required="required" />
          <select name="address_state" id="address_state" class="btn btn-success dropdown-toggle"
             style="width: 400px;
             background-color: white;
@@ -102,10 +103,11 @@
             padding: 10px;
 	        font-size: 13px;
          ">
+             <option value=0>Choose Property Area</option>
             <option value=1>URBAN</option>
             <option value=2>RORAL</option>
         </select>
-         <button style='color: #3DD00A; color:white; border-radius:20px; width:50%; margin-left: 100px; margin-top:10px'
+         <button style='color: #3DD00A; color:white; border-radius:20px; width:50%; margin-left: 100px; margin-top:15px'
                  type="submit" id="submit" class="btn btn-success btn-block btn-large"> Predict
          </button>
      </form>
