@@ -6,11 +6,11 @@ url = 'http://localhost:5000/predict_api'
 
 
 r = request.post(url, json={
-    'installment':200,
-    'term':36,
-    'borrower_length_experience':3,
-    'home_ownership':3,
-    'borrower_month_income':500,
-    'address_state':1
+    'installment':'borrower_length_experience',
+    'term':'term',
+    'borrower_length_experience':'borrower_length_experience',
+    'home_ownership':'home_ownership',
+    'borrower_month_income':'borrower_month_income',
+    'address_state':'address_state'
 })
 print(r.json())
