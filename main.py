@@ -1,6 +1,7 @@
 import numpy as np
 from flask import Flask, render_template, jsonify, request
 import pickle
+import pandas as pd
 import sklearn
 #import ML model
 app = Flask(__name__)
@@ -11,6 +12,7 @@ def home():
     return render_template(
         'custom_index.html'
     )
+
 # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -28,13 +30,17 @@ def predict():
         return render_template('custom_index.html', prediction_text='Loan $ For Request-er $ {}'.format(result))
 # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-#Not Worked yet
-@app.route('/predict_api', methods=['POST'])
+@app.route('/predict_api', methods=["POST"])
 def predict_api():
-    data = request.get_json(force=True)
-    prediction = model.predict([np.array(list(data.values()))])
-    result = prediction[0]
-    return flask.jsonify(**result)
+    #data = request.get_json(force=True)
+    data = request.json
+    query_df = pd.DataFrame(data)
+    prediction = model.predict(query_df)
+
+    # return flask.jsonify(**result)
+
+    return jsonify({"Prediction Result: ": list(prediction)})
+
 #let it display debugging
 if __name__ == "__main__":
     app.run(debug=True)
