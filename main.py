@@ -12,7 +12,6 @@ def home():
     return render_template(
         'custom_index.html'
     )
-
 # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -36,10 +35,8 @@ def predict_api():
     data = request.json
     query_df = pd.DataFrame(data)
     prediction = model.predict(query_df)
-
     # return flask.jsonify(**result)
-
-    return jsonify({"Prediction Result: ": list(prediction)})
+    return jsonify({"Loan $ Prediction Results: ": list(prediction)})
 
 #let it display debugging
 if __name__ == "__main__":
