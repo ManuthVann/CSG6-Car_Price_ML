@@ -71,6 +71,7 @@
      <form id="form" action="{{ url_for('predict')}}"  method="post">
          <input type="text" name="installment" placeholder="Monthly Installment($)" required="required" />
          <input type="text" name="term" placeholder="Number Of Term(Month)" required="required" />
+         <input type="text" name="borrower_month_income" placeholder="Monthly Income($)" required="required" />
          <input type="text" name="borrower_length_experience" placeholder="Number Of Experiences(Year)" required="required" />
          <select name="home_ownership" class="btn btn-success dropdown-toggle"
             style="width: 400px;
@@ -90,7 +91,6 @@
             <option value=3>OWN</option>
             <option value=4>ANY</option>
         </select>
-         <input type="text" name="borrower_month_income" placeholder="Monthly Income($)" required="required" />
          <select name="address_state" id="address_state" class="btn btn-success dropdown-toggle"
             style="width: 400px;
             background-color: white;

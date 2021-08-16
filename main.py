@@ -29,7 +29,7 @@ def predict():
         return render_template('custom_index.html', prediction_text='Loan $ For Request-er $ {}'.format(result))
 # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 # $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-@app.route('/predict_api', methods=["POST"])
+@app.route('/predict_api', methods=["GET","POST"])
 def predict_api():
     #data = request.get_json(force=True)
     data = request.json
