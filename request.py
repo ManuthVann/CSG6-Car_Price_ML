@@ -1,10 +1,6 @@
 from flask import request, jsonify
 from flask import json
-
-
 url = 'http://localhost:5000/predict_api'
-
-
 r = request.post(url, json={
     'installment':'borrower_length_experience',
     'term':'term',

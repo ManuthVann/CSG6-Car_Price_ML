@@ -38,6 +38,22 @@ def predict_api():
     # return flask.jsonify(**result)
     return jsonify({"Loan $ Prediction Results: ": list(prediction)})
 
+@app.route('/request_json', methods=["GET"])
+def request_json():
+    data = request.get_json()
+
+    installment = data['installment']
+    term = data['term']
+    borrower_month_income = data['borrower_month_income']
+    borrower_length_experience = data['borrower_length_experience']
+    home_ownership = data['home_ownership']
+    address_state = data['address_state']
+
+    prediction = model.predict(installment, term, borrower_month_income
+                               ,borrower_length_experience,home_ownership,
+                               address_state)
+    return jsonify({"Loan $ Prediction Results": prediction})
+
 #let it display debugging
 if __name__ == "__main__":
     app.run(debug=True)
