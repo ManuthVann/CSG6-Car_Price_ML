@@ -1,0 +1,121 @@
+End-End ML Learning Project with Flask Deployment
+
+1. Data Preparation 
+2. Machine Learning Modeling 
+3. Model Evaluation 
+4. Export Trained Model 
+5. Local Rest API with Flask web-server
+6. Create a website for predicing calling REST API
+7. Create amazon web services account 
+8. Spin EC2 sercer
+9. Move api and related trained model files to EC2 server
+10. Launched a website for marriage age prediction 
+11. Link to domain 
+12. =====================================
+
+Choosing service 
+Service 
+Create a key pair
+SSH -I file directory ubuntu@ip 
+Chmod 400 
+Sudo apt-get update
+After curl 
+Then need to update using 
+Sudo apt-get update
+Sudo python3 get-pip.py
+Sodo pip install flask_cors
+Sudo apt-get install apache2
+Sudo pip install sklearn 
+
+========
+
+Notes:  Predicing Year of Marriage - EC2 deployment 
+Create ec2 server, set appropriate security groups conf and save private key (pem)
+Using puttygen to convert private pem key to ppk (for MAC this is not necessary)
+
+On AWS 
+1. Choose os to work on 
+2. Choose an Instance Type
+Note in Step6 normally : using HTTP 
+
+On local Machine
+3. insert the keychain that has been download 
+ssh -i directoryOfKey username@ip 
+ssh -i desktop/EasyMoney/loan_price_prediction/LoanPricePrediction.cer ubuntu@13.229.247.66          
+ubuntu (username)
+
+-- Optional --
+Chmod 400 to change mode from accessable from the outsider 
+then ssh again 
+$$Result : go to the virtualenv working environment ( Ubuntu )
+
+On virtualenv Ubuntu
+Commands:
+python3 -V : 3.8
+get-pip.py 
+curl -O https://bootstrap.pypa.io/get-pip.py
+
+update : sudo apt-get update
+sudo python3 get-pip.py
+
+For installing the library 
+sudo pip install library
+sudo apt-get install apache2 : from app server 
+
+----------------
+copy app.py and model.ml files to EC2  /home/ubuntu/mlapp
+scp -i /Users/manuthvann/desktop/EasyMoney/loan_price_prediction/LoanPricePrediction.cer -r requirements.txt ubuntu@13.229.247.66:/home/ubuntu/
+
+===================
+working on screen in ubuntu
+
+update apt 
+sudo install screen
+screen 
+
+-- working with gunicorn and nginx
+
+- nginx
+cd /etc/nginx/sites-enabled/
+sudo service nginx restart
+sudo service nginx status
+
+- gunicorn
+ cd /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo service gunicorn start
+sudo service gunicorn(file.service) status
+
+ sudo vim gunicorn.service
+ which gunicorn
+:qa! force quit
+
+- openssl
+sudo apt-get install openssl
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-self-signed.key -out /etc/ssl/certs/nginx-self-signed.crt
+
+----- Creating session ------
+screen -S loanPricePrediction
+
+
+------ nginx web server and gunicorn as wsgi server
+ sudo apt-get install nginx
+ cd /etc/nginx
+ sudo systeml start nginx
+cd /etc/nginx/sites-enabled
+
+sudo apt install python3-virtualenv
+ virtualenv venv
+ source venv/bin/activate
+
+-- install packages in venv using requirements.txt
+pip install -r requirements.txt
+
+install guicorn using pip3 install 
+guicorn --bind 0.0.0.0:8080
+
+------- security on aws ---------
+inbound : http: 80 
+          ssh : 22, customTSl : 8080 
+
+outbound: http, http, ssh 
