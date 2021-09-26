@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html >
 <head>
-    <title>Loan $ Prediction</title>
+    <title>Car $ Prediction</title>
     <script>
         const installment=document.getElementById('installment')
         const borrower_month_income=document.getElementById('borrower_month_income')
@@ -63,50 +63,25 @@
  </div>
  <div class="login">
      <h2 style='color: #3DD00A;'>
-         "LOAN $ PREDICTION"
+         "CAR $ PREDICTION"
+
      </h2>
      <p style='color: #3DD00A;'>
          EasyMoney CO., LTD
      </p>
      <form id="form" action="{{ url_for('predict')}}"  method="post">
-         <input type="text" name="installment" placeholder="Monthly Installment($)" required="required" />
-         <input type="text" name="term" placeholder="Number Of Term(Month)" required="required" />
-         <input type="text" name="borrower_month_income" placeholder="Monthly Income($)" required="required" />
-         <input type="text" name="borrower_length_experience" placeholder="Number Of Experiences(Year)" required="required" />
-         <select name="home_ownership" class="btn btn-success dropdown-toggle"
-            style="width: 400px;
-            background-color: white;
-            color:grey;
-            margin-top: 5px;
-            margin-bottom: 10px;
-            border-radius: 10px;
-            border:2px solid #3DD00A;
-            top: 40%;
-            padding: 10px;
-	        font-size: 13px;
-         ">
-             <option value=0>Choose Home Ownership</option>
-            <option value=1>RENT</option>
-            <option value=2>MORTGAGE</option>
-            <option value=3>OWN</option>
-            <option value=4>ANY</option>
-        </select>
-         <select name="address_state" id="address_state" class="btn btn-success dropdown-toggle"
-            style="width: 400px;
-            background-color: white;
-            color:grey;
-            margin-top: 5px;
-            margin-bottom: 10px;
-            border-radius: 10px;
-            border:2px solid #3DD00A;
-            top: 40%;
-            padding: 10px;
-	        font-size: 13px;
-         ">
-             <option value=0>Choose Property Area</option>
-            <option value=1>URBAN</option>
-            <option value=2>RORAL</option>
-        </select>
+         <input type="text" name="year" placeholder="Year" required="required" />
+         <input type="text" name="manufacturer" placeholder="Manufacturer" required="required" />
+         <input type="text" name="cylinder" placeholder="Cylinder" required="required" />
+         <input type="text" name="model" placeholder="Model" required="required" />
+         <input type="text" name="fuel" placeholder="Fuel" required="required" />
+         <input type="text" name="kms_driven" placeholder="KMS Driven" required="required" />
+         <input type="text" name="status" placeholder="Status" required="required" />
+         <input type="text" name="transmission" placeholder="Transmission" required="required" />
+         <input type="text" name="drive_wheel" placeholder="Drive Wheel" required="required" />
+         <input type="text" name="body_type" placeholder="Body Type" required="required" />
+         <input type="text" name="colour" placeholder="Colour" required="required" />
+
          <button style='color: #3DD00A; color:white; border-radius:20px; width:50%; margin-left: 100px; margin-top:15px'
                  type="submit" id="submit" class="btn btn-success btn-block btn-large"> Predict
          </button>
