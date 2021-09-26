@@ -63,10 +63,12 @@ deployed our "model" on AWS.
 While some code has already been implemented to get you started, you will need to implement additional functionality when requested to successfully
 complete the project. after you have done you need python main.py to run the our project.
 
+
 ------- On local Host ------- 
 So what you have to do next is 
 running main.py using cmd 
 flask run to run the localhost 
+
 
 ### Last But Not Least 
 run custom_index.html file 
