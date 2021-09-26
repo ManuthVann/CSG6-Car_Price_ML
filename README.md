@@ -69,12 +69,27 @@ So what you have to do next is
 running main.py using cmd 
 flask run to run the localhost 
 
+------- FOR TESTING  ------- 
+new_samples_list = [[2002 ,1, 6, 1, 3,1000, 0,0,1,1,3],
+                [2017 ,23, 6, 3, 2,2500.0, 0,0,1,10,8],
+                [2018 ,4, 8, 5, 3,2500.0, 2,4,3,4,3],
+                [2002 ,4, 8, 5, 3,2500, 2,4,3,4,3],
+                [2013,3,8,7,2,11843.0,0,0,0,3,0]]
 
-### Last But Not Least 
-run custom_index.html file 
-and play around with it by filling up the required information .
+Please used the sample data above to test it on web application 
+++ We use the number to represent since we do this to avoid the user fill up with missing value and requireed data which leads to complexity.
+Those required data are: 
+. manufacturer 
+. model
+. cylinder
+. fuel
+. status
+. transmission
+. drive_wheel
+. body_type
+. colour 
 
-
+++ For further data detail please open up fcar_price_prediction_1.ipnb notebook file to understand more 
 ------- Remark ------- 
 Since this web application is designed to test our ml model in localhost only , for the main api and the real process is designed 
 on our mobile applicaiton and web application 
